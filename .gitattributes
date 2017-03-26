@@ -1,0 +1,8 @@
+# Ignore these files when installed by Composer in "dist" mode.
+#
+.gitattributes export-ignore
+.gitignore export-ignore
+composer.json export-ignore
+composer.lock export-ignore
+README.md export-ignore
+LICENSE export-ignore
