@@ -1,0 +1,16 @@
+{
+  "name": "tivwp/wp",
+  "description": "Useful WordPress shortcut methods",
+  "minimum-stability": "stable",
+  "license": "GPL-3.0",
+  "keywords": ["wordpress"],
+  "authors": [
+    {
+      "name": "Gregory Karpinsky",
+      "role": "Lead Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.3"
+  }
+}
