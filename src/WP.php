@@ -1,6 +1,6 @@
 <?php
 
-namespace TIVWP;
+namespace TIVWP\WP;
 
 /**
  * Class WP provides WordPress shortcuts.
@@ -43,7 +43,7 @@ class WP {
 	 * To get the current admin page.
 	 * (Set in wp-includes/vars.php)
 	 *
-	 * @return string $page
+	 * @return string $pagenow
 	 */
 	public static function pagenow() {
 		/**
@@ -103,9 +103,7 @@ class WP {
 	 * @return bool
 	 */
 	public static function is_http_post_action( $action ) {
-		$action = (array) $action;
-
-		return ( ! empty( $_POST['action'] ) && in_array( $_POST['action'], $action, true ) );
+		return ( ! empty( $_POST['action'] ) && in_array( $_POST['action'], (array) $action, true ) );
 	}
 
 	/**
@@ -116,9 +114,7 @@ class WP {
 	 * @return bool
 	 */
 	public static function is_http_get_action( $action ) {
-		$action = (array) $action;
-
-		return ( ! empty( $_GET['action'] ) && in_array( $_GET['action'], $action, true ) );
+		return ( ! empty( $_GET['action'] ) && in_array( $_GET['action'], (array) $action, true ) );
 	}
 
 	/**
@@ -128,9 +124,6 @@ class WP {
 	 * @param string $class    Class name.
 	 *
 	 * @return bool
-	 * @todo Unit test
-	 * @todo What if we check for the class name only?
-	 * @todo Use the form class::method ?
 	 */
 	public static function is_filter_called_by( $function, $class = '' ) {
 		if ( empty( $function ) ) {
@@ -226,7 +219,7 @@ class WP {
 	 *
 	 * @return bool True if any of the pair is found in the backtrace.
 	 */
-	public static function is_functions_in_backtrace( Array $callables ) {
+	public static function is_functions_in_backtrace( array $callables ) {
 		foreach ( $callables as $callable ) {
 			if ( self::is_function_in_backtrace( $callable ) ) {
 				return true;
