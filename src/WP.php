@@ -260,18 +260,6 @@ class WP {
 	}
 
 	/**
-	 * Add a notice to the "queue of notices" on Debug page only.
-	 *
-	 * @param string $message Message text (HTML is OK).
-	 * @param string $class   Display class (severity).
-	 */
-	public static function add_debug_notice( $message, $class = self::ADMIN_NOTICE_INFO ) {
-		if ( ! empty( $_GET['page'] ) && 'bemailr_debug' === $_GET['page'] && self::is_debug() ) {
-			self::$admin_notices[] = array( 'message' => $message, 'class' => $class );
-		}
-	}
-
-	/**
 	 * Display all notices.
 	 */
 	public static function display_admin_notices() {
